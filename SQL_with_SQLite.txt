@@ -1,0 +1,23 @@
+sqlite> CREATE TABLE users (
+   ...>   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...>   first_name VARCHAR(64) NOT NULL,
+   ...>   last_name VARCHAR(64) NOT NULL,
+   ...>   email VARCHAR(128) UNIQUE NOT NULL,
+   ...>   created_at DATETIME NOT NULL,
+   ...>   updated_at DATETIME NOT NULL
+   ...> );
+sqlite> INSERT INTO users
+   ...> (first_name, last_name, email, created_at, updated_at)
+   ...> VALUES
+   ...> ('Joshua', 'Teng', 'jedicoder@example.com', DATETIME('now'), DATETIME('now'));
+sqlite> select * from users;
+1|Joshua|Teng|jedicoder@example.com|2019-11-03 13:09:56|2019-11-03 13:09:56
+sqlite> Alter Table users add nickname VARCHAR(64);
+sqlite> select * from users;
+1|Joshua|Teng|jedicoder@example.com|2019-11-03 13:09:56|2019-11-03 13:09:56|
+sqlite> update users set nickname = 'pookie butt';
+sqlite> select * from users;
+1|Joshua|Teng|jedicoder@example.com|2019-11-03 13:09:56|2019-11-03 13:09:56|pookie butt
+sqlite> update users set first_name = 'Josh', updated_at = DATETIME( 'now' ), nickname = 'Ninja Coder';
+sqlite> select*from users;
+1|Josh|Teng|jedicoder@example.com|2019-11-03 13:09:56|2019-11-03 13:21:55|Ninja Coder
